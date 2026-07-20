@@ -565,6 +565,8 @@
         } else if (workflowFile === 'generate_all_14d_bulletins.yml' ||
                    workflowFile === 'meteo_kappa_envoi.yml') {
           reqBody.inputs = { test_mode: 'false', triggered_by: 'patrick' };
+        } else if (workflowFile === 'bilan_journalier.yml') {
+          reqBody.inputs = { test_mode: 'false' };
         } else {
           reqBody.inputs = { triggered_by: 'patrick' };
         }
