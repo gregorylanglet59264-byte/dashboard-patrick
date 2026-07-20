@@ -559,12 +559,12 @@
             workflowFile === 'test_vigilance_only.yml') {
           // Aucun input
         } else if (workflowFile === 'veille_quotidienne.yml') {
-          reqBody.inputs = { type: 'all' };
+          reqBody.inputs = { type: 'all', triggered_by: 'patrick' };
         } else if (workflowFile === 'twitter_monsieur_meteo.yml') {
-          reqBody.inputs = { mode: 'all' };
+          reqBody.inputs = { mode: 'all', triggered_by: 'patrick' };
         } else if (workflowFile === 'generate_all_14d_bulletins.yml' ||
                    workflowFile === 'meteo_kappa_envoi.yml') {
-          reqBody.inputs = { test_mode: 'false' };
+          reqBody.inputs = { test_mode: 'false', triggered_by: 'patrick' };
         } else {
           reqBody.inputs = { triggered_by: 'patrick' };
         }
