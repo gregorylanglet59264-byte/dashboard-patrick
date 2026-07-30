@@ -361,6 +361,25 @@
         </button>
       </div>
 
+      <!-- BILAN OBSERVATION NORD-PAS-DE-CALAIS -->
+      <div class="wf-card">
+        <div class="wf-info">
+          <div class="wf-repo-badge"><i class="fa-brands fa-github"></i> veille-automation</div>
+          <div class="wf-title">🌾 Bilan observation Nord-Pas-de-Calais</div>
+          <div class="wf-desc">Collecte les observations météo du jour sur Météociel pour le Nord (59) et le Pas-de-Calais (62), calcule les moyennes et anomalies par rapport aux normales. Le bilan complet est envoyé par e-mail à Patrick Marlière en moins de 45 secondes.</div>
+          <div style="font-size: 11.5px; font-weight: 600; color: rgba(255,255,255,0.4); display: flex; gap: 12px; margin-bottom: 8px;">
+            <span><i class="fa-solid fa-stopwatch" style="color:#00c6ff; margin-right:4px;"></i> Durée : ~25 sec</span>
+            <span><i class="fa-solid fa-envelope" style="color:#66bb6a; margin-right:4px;"></i> Mail sous ~45 sec</span>
+          </div>
+          <div class="wf-last-run" id="run-veille-automation__bilan_journalier_npdc">
+            <span class="run-dot dot-unknown"></span> Chargement…
+          </div>
+        </div>
+        <button class="btn btn-trigger" onclick="triggerWf(this, 'veille-automation', 'bilan_journalier_npdc.yml')">
+          <i class="fa-solid fa-play"></i> Lancer
+        </button>
+      </div>
+
       <!-- BILAN OBSERVATION NATIONAL -->
       <div class="wf-card">
         <div class="wf-info">
@@ -416,6 +435,7 @@
       { repo: 'veille-automation',    file: 'vigilance_quotidienne.yml',id:'veille-automation__vigilance_quotidienne' },
       { repo: 'veille-automation',    file: 'meteo_france_bulletins.yml',id:'veille-automation__meteo_france_bulletins' },
       { repo: 'veille-automation',    file: 'bilan_journalier.yml',   id: 'veille-automation__bilan_journalier' },
+      { repo: 'veille-automation',    file: 'bilan_journalier_npdc.yml', id: 'veille-automation__bilan_journalier_npdc' },
       { repo: 'veille-automation',    file: 'veille_intemperies.yml', id: 'veille-automation__veille_intemperies' },
       { repo: 'bilan-national-france',file: 'bilan_national.yml',     id: 'bilan-national-france__bilan_national' }
     ];
@@ -565,7 +585,7 @@
         } else if (workflowFile === 'generate_all_14d_bulletins.yml' ||
                    workflowFile === 'meteo_kappa_envoi.yml') {
           reqBody.inputs = { test_mode: 'false', triggered_by: 'patrick' };
-        } else if (workflowFile === 'bilan_journalier.yml') {
+        } else if (workflowFile === 'bilan_journalier.yml' || workflowFile === 'bilan_journalier_npdc.yml') {
           reqBody.inputs = { test_mode: 'false' };
         } else {
           reqBody.inputs = { triggered_by: 'patrick' };
